@@ -21,6 +21,7 @@
       "description": "Package di mileApp"
     }
   ],
+  "schemes": ["https", "http"],
   "paths": {
     "/api/package": {
       "get": {
@@ -39,20 +40,19 @@
       "post": {
         "tags": ["Package"],
         "summary": "Menambahkan data Packages",
-        "description": "Menambahkan semua data Packages",
+        "description": "Menambahkan data Packages",
         "consumes": "application/json",
         "produces": "application/json",
-        "parameters": [
-          {
-            "in": "body",
-            "name": "body",
-            "description": "Package object",
-            "required": false,
-            "schema": {
-              "$ref": "#/definitions/Package"
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/definitions/Package"
+              }
             }
           }
-        ],
+        },
         "responses": {
           "200": {
             "description": "Sukses"
@@ -86,6 +86,101 @@
             "description": "Gagal"
           }
         }
+      },
+      "put": {
+        "tags": ["Package"],
+        "summary": "Mengubah spesifik data Packages berdasarkan id",
+        "description": "Mengubah spesifik data Packages berdasarkan id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Id Paket"
+          }
+        ],
+        "consumes": "application/json",
+        "produces": "application/json",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/definitions/Package"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sukses"
+          },
+          "400": {
+            "description": "Gagal"
+          }
+        }
+      },
+      "patch": {
+        "tags": ["Package"],
+        "summary": "Mengubah spesifik data Packages berdasarkan id",
+        "description": "Mengubah spesifik data Packages berdasarkan id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Id Paket"
+          }
+        ],
+        "consumes": "application/json",
+        "produces": "application/json",
+        "requestBody": {
+          "content": {
+            "application/json": {
+              "schema": {
+                "type": "object",
+                "$ref": "#/definitions/Package"
+              }
+            }
+          }
+        },
+        "responses": {
+          "200": {
+            "description": "Sukses"
+          },
+          "400": {
+            "description": "Gagal"
+          }
+        }
+      },
+      "delete": {
+        "tags": ["Package"],
+        "summary": "Menghapus spesifik data Packages berdasarkan id",
+        "description": "Menghapus spesifik data Packages berdasarkan id",
+        "parameters": [
+          {
+            "in": "path",
+            "name": "id",
+            "schema": {
+              "type": "string"
+            },
+            "description": "Id Paket"
+          }
+        ],
+        "consumes": "application/json",
+        "produces": "application/json",
+        "responses": {
+          "200": {
+            "description": "Sukses"
+          },
+          "400": {
+            "description": "Gagal"
+          }
+        }
       }
     }
   },
@@ -100,6 +195,10 @@
         "customer_name": {
           "type": "string",
           "example": "PT. AMARA PRIMATIGA"
+        },
+        "customer_code": {
+          "type": "string",
+          "example": "1678593"
         },
         "transaction_amount": {
           "type": "string",
@@ -151,7 +250,7 @@
         },
         "transaction_cash_amount": {
           "type": "integer",
-          "example": 0
+          "example": 100
         },
         "transaction_cash_change": {
           "type": "integer",
