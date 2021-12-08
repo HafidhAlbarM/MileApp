@@ -38,6 +38,7 @@ module.exports = {
     }
   },
   post: async (req, res) => {
+    console.log(req.body);
     const transaction_id = req.body.transaction_id || null;
     const customer_name = req.body.customer_name || null;
     const customer_code = req.body.customer_code || null;

@@ -24,7 +24,7 @@ const trasactionSchema = mongoose.Schema({
   connote_id: String,
   origin_data: Schema.Types.Mixed,
   destination_data: Schema.Types.Mixed,
-  koli_data: Schema.Types.Mixed,
+  koli_data: Array,
   custom_field: Schema.Types.Mixed,
   currentLocation: Schema.Types.Mixed,
 });
