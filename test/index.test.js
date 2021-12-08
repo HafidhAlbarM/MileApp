@@ -16,7 +16,7 @@ let id = "";
 
 test("POST TRANSACTION", async () => {
   let response = await request(app)
-    .post("/api/transaction")
+    .post("/api/package")
     .send({
       transaction_id: "d0090c40-539f-479a-8274-899b9970bddc",
       customer_name: "PT. AMARA PRIMATIGA",
@@ -177,19 +177,19 @@ test("POST TRANSACTION", async () => {
 });
 
 test("GET TRANSACTION", async () => {
-  let response = await request(app).get("/api/transaction");
+  let response = await request(app).get("/api/package");
 
   expect(response.statusCode).toBe(200);
 });
 
 test("GET TRANSACTION BY ID", async () => {
-  let response = await request(app).get(`/api/transaction/${id}`);
+  let response = await request(app).get(`/api/package/${id}`);
 
   expect(response.statusCode).toBe(200);
 });
 
 test("PATCH TRANSACTION", async () => {
-  let response = await request(app).patch(`/api/transaction/${id}`).send({
+  let response = await request(app).patch(`/api/package/${id}`).send({
     customer_name: "PT. Maju Mundur",
     customer_code: "666",
   });
@@ -199,7 +199,7 @@ test("PATCH TRANSACTION", async () => {
 
 test("PUT TRANSACTION", async () => {
   let response = await request(app)
-    .put(`/api/transaction/${id}`)
+    .put(`/api/package/${id}`)
     .send({
       transaction_id: "d0090c40-539f-479a-8274-899b9970bddc",
       customer_name: "PT. AMARA PRIMATIGA",
@@ -357,7 +357,7 @@ test("PUT TRANSACTION", async () => {
 });
 
 test("DELETE TRANSACTION", async () => {
-  let response = await request(app).delete(`/api/transaction/${id}`);
+  let response = await request(app).delete(`/api/package/${id}`);
 
   expect(response.statusCode).toBe(200);
 });

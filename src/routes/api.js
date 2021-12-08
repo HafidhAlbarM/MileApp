@@ -1,8 +1,8 @@
 const express = require("express");
 const Router = express.Router();
 
-const transactionRouter = require("./transaction/transaction");
+const packageRouter = require("./package/package");
 
-Router.use("/transaction", transactionRouter);
+Router.use("/package", packageRouter);
 
 module.exports = Router;
