@@ -250,7 +250,7 @@
         },
         "transaction_cash_amount": {
           "type": "integer",
-          "example": 100
+          "example": 70700
         },
         "transaction_cash_change": {
           "type": "integer",

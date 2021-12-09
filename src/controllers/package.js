@@ -11,7 +11,7 @@ module.exports = {
         data: transactions,
       });
     } catch (error) {
-      res.status(400).json({
+      res.json({
         status: 400,
         success: false,
         message: "Gagal Menampilkan data",
@@ -29,7 +29,7 @@ module.exports = {
         data: transaction,
       });
     } catch (error) {
-      res.status(400).json({
+      res.json({
         status: 400,
         success: false,
         message: "Gagal Menampilkan data",
@@ -102,7 +102,7 @@ module.exports = {
         data: resultTransaction,
       });
     } catch (error) {
-      res.status(400).json({
+      res.json({
         status: 400,
         success: false,
         message: "Gagal Menambahkan data",
@@ -145,7 +145,12 @@ module.exports = {
       const resultTransaction = await transactionModel.findById(id);
 
       if (resultTransaction.length <= 0) {
-        res.status(400).json({ message: "Data tidak ditemukan" });
+        res.json({
+          status: 400,
+          success: false,
+          message: "Data tidak ditemukan",
+          errorMessage: error.message,
+        });
       } else {
         const updateTransaction = await transactionModel.updateOne(
           { _id: id },
@@ -184,7 +189,12 @@ module.exports = {
         });
       }
     } catch (error) {
-      res.status(400).json({ message: error });
+      res.json({
+        status: 400,
+        success: false,
+        message: "Data tidak ditemukan",
+        errorMessage: error.message,
+      });
     }
   },
   patch: async (req, res) => {
@@ -195,7 +205,12 @@ module.exports = {
       const resultTransaction = await transactionModel.findById(id);
 
       if (resultTransaction.length <= 0) {
-        res.status(400).json({ message: "Data tidak ditemukan" });
+        res.json({
+          status: 400,
+          success: false,
+          message: "Data tidak ditemukan",
+          errorMessage: error.message,
+        });
       } else {
         const updateTransaction = await transactionModel.updateOne(
           { _id: id },
@@ -208,7 +223,12 @@ module.exports = {
         });
       }
     } catch (error) {
-      res.status(400).json({ message: error });
+      res.json({
+        status: 400,
+        success: false,
+        message: "Data tidak ditemukan",
+        errorMessage: error.message,
+      });
     }
   },
   delete: async (req, res) => {

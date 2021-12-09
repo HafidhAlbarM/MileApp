@@ -33,7 +33,7 @@ test("POST TRANSACTION", async () => {
       created_at: "2020-07-15T11:11:12+0700",
       updated_at: "2020-07-15T11:11:22+0700",
       transaction_payment_type_name: "Invoice",
-      transaction_cash_amount: 0,
+      transaction_cash_amount: 70700,
       transaction_cash_change: 0,
       customer_attribute: {
         Nama_Sales: "Radit Fitrawikarsa",
